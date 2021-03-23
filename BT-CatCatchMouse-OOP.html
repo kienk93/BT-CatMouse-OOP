@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô phỏng mèo bắt chuột</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Mouse {
+        name;
+        weight;
+        speed;
+        status;
+        constructor(name,weight,speed,status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+        saySomeThing () {
+            alert('Chít chít ')
+        }
+        status () {
+            if(status == true) {
+                alert('Con chuột còn sống')
+            } else {
+                alert('Con chuột DED')
+            }
+        }
+    }
+    class Cat {
+        name;
+        weight;
+        speed;
+        constructor(name,weight,speed)  {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+        saySomeThing() {
+            alert('Mèo méo meo mèo meo')
+        }
+        catchMouse(Mouse) {
+            if(this.speed > Mouse.speed) {
+                --Mouse.weight;
+            }
+        }
+        eatMouse(Mouse) {
+            if(Mouse.status = true) {
+                this.weight += Mouse.weight;
+                Mouse.weight = 0;
+                Mouse.status = false;
+            }
+        }
+    }
+    let Jerry = new Mouse('Jerry',5,10,true)
+    let Tom = new Cat('Tom',12,20)
+    function TiengKeu() {
+        Jerry.saySomeThing()
+        Tom.saySomeThing()
+    }
+    function TomCatchAMouse () {
+        TiengKeu()
+        Tom.catchMouse(Jerry);
+        alert('Số lượng chuột còn lại : ' + Jerry.weight)
+        Tom.eatMouse(Jerry)
+        alert('Chuột status :  '+ Jerry.status)
+        alert(Tom.weight)
+    }
+    TomCatchAMouse()
+</script>
